@@ -105,9 +105,11 @@ def action(status):
             print(key)
         
     except Exception as e:
-         print(e)
+        print(e)
     finally:
         print('Interactive mode has been stopped!') 
+        status['v'] = 0
+        status['w'] = 0
         restoreTerminalSettings(settings)
 
 def handler():

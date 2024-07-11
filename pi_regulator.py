@@ -81,8 +81,17 @@ def move(status):
 
 
 if __name__=="__main__":
-    thr = threading.Thread(target=action, args=(status,),name='keyboard')
-    thr.start()
+    try:
+        thr = threading.Thread(target=action, args=(status,),name='keyboard')
+        thr.start()
 
-    move(status)
+        move(status)
+    except Exception as e:
+        print(e)
+    finally:
+        left_motor.stop()
+        right_motor.stop()
+
+
+
 
